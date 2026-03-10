@@ -26,8 +26,8 @@ public class Mapper implements ProductMapper, CategoryMapper {
         return new CategoryResponse(category.getId(),
                 category.getCategoryName(),
                 category.getDescription(),
-                category.getCreatedAt(),
-                category.getUpdatedAt(),
+                category.getCreateAt(),
+                category.getUpdateAt(),
                 category.getDeleteAt());
     }
 
