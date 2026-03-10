@@ -2,22 +2,15 @@ package com.learn.pagination_filtering.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
-import java.time.LocalDateTime;
-
+import org.hibernate.annotations.SQLDelete;
 @Entity
-@Table(name = "product_tables",indexes = {}
-)
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Table(name = "products")
+@SQLDelete(sql = "UPDATE products SET is_deleted = true, deleted_at = now() WHERE id=?")
+//@SQLRestriction("IS_DELETED = false")
 public class Product extends BaseEntity {
 
     @Id
@@ -44,4 +37,6 @@ public class Product extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+
 }

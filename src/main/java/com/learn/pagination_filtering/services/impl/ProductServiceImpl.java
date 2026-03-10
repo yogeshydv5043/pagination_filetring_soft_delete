@@ -78,8 +78,8 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProduct(Long id) {
         Product product = productsRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(String.format("Product not found with Id: %d !!", id)));
-        product.setDeleteAt(LocalDateTime.now());
-        product.setDeleteFlag(true);
+        product.setDeletedAt(LocalDateTime.now());
+        product.setDeleted(true);
         productsRepository.save(product);
     }
 }

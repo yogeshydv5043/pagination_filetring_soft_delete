@@ -26,9 +26,9 @@ public class Mapper implements ProductMapper, CategoryMapper {
         return new CategoryResponse(category.getId(),
                 category.getCategoryName(),
                 category.getDescription(),
-                category.getCreateAt(),
-                category.getUpdateAt(),
-                category.getDeleteAt());
+                category.getCreatedAt(),
+                category.getUpdatedAt(),
+                category.getDeletedAt());
     }
 
     @Override
@@ -58,8 +58,8 @@ public class Mapper implements ProductMapper, CategoryMapper {
                 products.getQuantity(),
                 products.getBrand(),
                 categoryResponse,
-                products.getCreateAt(),
-                products.getUpdateAt());
+                products.getCreatedAt(),
+                products.getUpdatedAt());
     }
 
     @Override
@@ -72,7 +72,7 @@ public class Mapper implements ProductMapper, CategoryMapper {
                 products.getQuantity(),
                 products.getBrand(),
                 categoryResponse,
-                products.getCreateAt());
+                products.getCreatedAt());
     }
 
     @Override

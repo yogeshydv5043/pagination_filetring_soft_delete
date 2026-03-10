@@ -1,23 +1,23 @@
 package com.learn.pagination_filtering.models;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.SQLDelete;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "category_tables")
+@Table(name = "categories")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@SQLDelete(sql = "UPDATE categories SET is_deleted = true, deleted_at = now() WHERE id=?")
 public class Category extends BaseEntity {
 
     @Id
